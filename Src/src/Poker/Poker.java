@@ -19,7 +19,7 @@ public class Poker {
         cdeal = false;
         pedirMesa = false;
         flopmais = false;
-        System.out.println("\n\nBem vindo ao jogo de Poker !");
+        System.out.println(ConsoleColors.RESET +"\n\nBem vindo ao jogo de Poker !");
         System.out.println("\nQuantos jogadores irão jogar?");
         do {
             try {
@@ -61,7 +61,7 @@ public class Poker {
                 System.out.println("Levou a bolada de: " + ConsoleColors.GREEN + "R$ " +ConsoleColors.YELLOW + vl_Total + ConsoleColors.RESET);
             }else{
                 LinhaPontilhada();
-                System.out.println(ConsoleColors.PURPLE + "\nPré-Flop Terminou, Próxima Rodada!" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.PURPLE + "\nPré-Flop Terminou, Próxima Rodada!\n" + ConsoleColors.RESET);
                 LinhaPontilhada();
                 for (int i = 0; i < 3; i++) {
                     cartasMesa();
@@ -74,7 +74,7 @@ public class Poker {
                     System.out.println("Levou a bolada de: " + ConsoleColors.GREEN + "R$ " +ConsoleColors.YELLOW + vl_Total + ConsoleColors.RESET);
                 }else{
                     LinhaPontilhada();
-                    System.out.println(ConsoleColors.PURPLE + "\nFlop Terminou, Próxima Rodada!" + ConsoleColors.RESET);
+                    System.out.println(ConsoleColors.PURPLE + "\nFlop Terminou, Próxima Rodada!\n" + ConsoleColors.RESET);
                     LinhaPontilhada();
                     cartasMesa();
                     turn();
@@ -85,7 +85,7 @@ public class Poker {
                         System.out.println("Levou a bolada de: " + ConsoleColors.GREEN + "R$ " +ConsoleColors.YELLOW + vl_Total + ConsoleColors.RESET);
                     }else{
                         LinhaPontilhada();
-                        System.out.println(ConsoleColors.PURPLE + "\nTurn Terminou, Próxima Rodada!" + ConsoleColors.RESET);
+                        System.out.println(ConsoleColors.PURPLE + "\nTurn Terminou, Próxima Rodada!\n" + ConsoleColors.RESET);
                         LinhaPontilhada();
                         cartasMesa();
                         river();
@@ -96,7 +96,7 @@ public class Poker {
                             System.out.println("Levou a bolada de: " + ConsoleColors.GREEN + "R$ " +ConsoleColors.YELLOW + vl_Total + ConsoleColors.RESET);
                         }else{
                             LinhaPontilhada();
-                            System.out.println(ConsoleColors.PURPLE + "\nRiver Terminou, Próxima Rodada!" + ConsoleColors.RESET);
+                            System.out.println(ConsoleColors.PURPLE + "\nRiver Terminou, Próxima Rodada!\n" + ConsoleColors.RESET);
                             LinhaPontilhada();
                             showDown();
                         }
@@ -186,13 +186,13 @@ public class Poker {
         }
         do {
             if (dentrodojogo(l)) {
-                System.out.println("Valor atual da mesa: " +ConsoleColors.GREEN + "R$ " + ConsoleColors.YELLOW + vl_Total + ConsoleColors.RESET);
+                System.out.println("Valor atual da mesa: " +ConsoleColors.GREEN + "R$ " + ConsoleColors.YELLOW + vl_Total + ConsoleColors.RESET +"\n");
                 if (firstp) {
                     LinhaPontilhada();
                     System.out.print(ConsoleColors.GREEN + "Próximo a jogar é o  " + ConsoleColors.RESET);
                 } else {
                     LinhaPontilhada();
-                    System.out.println(ConsoleColors.BLUE + "\nO jogador que começará é: " + ConsoleColors.RESET);
+                    System.out.print(ConsoleColors.BLUE + "\nO jogador que começará é o " + ConsoleColors.RESET);
                 }
                 cartasJogador(l);
                 escolha(l);
@@ -223,7 +223,7 @@ public class Poker {
                     System.out.print(ConsoleColors.GREEN + "Próximo a jogar é o  " + ConsoleColors.RESET);
                 } else {
                     LinhaPontilhada();
-                    System.out.println(ConsoleColors.BLUE + "\nO jogador que começará é: " + ConsoleColors.RESET);
+                    System.out.print(ConsoleColors.BLUE + "\nO jogador que começará é o " + ConsoleColors.RESET);
                 }
                 cartasJogador(l);
                 escolha(l);
@@ -255,7 +255,7 @@ public class Poker {
                     System.out.print(ConsoleColors.GREEN + "Próximo a jogar é o  " + ConsoleColors.RESET);
                 } else {
                     LinhaPontilhada();
-                    System.out.println(ConsoleColors.BLUE + "\nO jogador que começará é: " + ConsoleColors.RESET);
+                    System.out.print(ConsoleColors.BLUE + "\nO jogador que começará é o " + ConsoleColors.RESET);
                 }
                 cartasJogador(l);
                 escolha(l);
@@ -287,7 +287,7 @@ public class Poker {
                     System.out.print(ConsoleColors.GREEN + "Próximo a jogar é o  " + ConsoleColors.RESET);
                 } else {
                     LinhaPontilhada();
-                    System.out.println(ConsoleColors.BLUE + "\nO jogador que começará é: " + ConsoleColors.RESET);
+                    System.out.print(ConsoleColors.BLUE + "\nO jogador que começará é o " + ConsoleColors.RESET);
                 }
                 cartasJogador(l);
                 escolha(l);
@@ -581,8 +581,9 @@ public class Poker {
                             }
                         }
                         if (seq == 5 ){
-                            System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu um ROYAL Straight FLUSH\n\n");
+                            System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu um"+ConsoleColors.RED+" ROYAL Straight FLUSH"+ConsoleColors.RESET +"\n");
                             jogadores.get(j).setPontos(10000);
+                            LinhaPontilhada();
                             return;
                         }
                     }
@@ -602,15 +603,17 @@ public class Poker {
                                 continue;
                             }else{
                                 //FLUSH
-                                System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu um FLUSH\n\n");
+                                System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu um"+ConsoleColors.YELLOW+" FLUSH"+ConsoleColors.RESET +"\n");
                                 jogadores.get(j).setPontos(6000);
+                                LinhaPontilhada();
                                 return;
                             }
                         }
                     }
                     if (seq == 5 ){
-                        System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu um Straight FLUSH\n\n");
+                        System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu um"+ConsoleColors.GREEN+" Straight FLUSH"+ConsoleColors.RESET +"\n");
                         jogadores.get(j).setPontos(9000 + cartlast);
+                        LinhaPontilhada();
                         return;
                     }
                 }
@@ -625,8 +628,9 @@ public class Poker {
                 cartlast = Sequencia.get(k).getValor().getValorCarta();
                 seq +=1;
                 if (seq == 4) {
-                    System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu uma QUADRA\n\n");
+                    System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu uma"+ConsoleColors.BLUE+" QUADRA"+ConsoleColors.RESET +"\n");
                     jogadores.get(j).setPontos(8000 + cartlast);
+                    LinhaPontilhada();
                     return;
                 }
             } else {
@@ -674,8 +678,9 @@ public class Poker {
             }
         }
         if (par == true){
-            System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu um FULL HOUSE\n\n");
+            System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu um"+ConsoleColors.PURPLE+" FULL HOUSE"+ConsoleColors.RESET +"\n");
             jogadores.get(j).setPontos(7000 + cartlast);
+            LinhaPontilhada();
             trinca= false;
             par = false;
             return;
@@ -700,8 +705,9 @@ public class Poker {
                 }
             }
             if (seq == 5){
-                System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu um Straight (Sequencia)\n\n");
+                System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu um"+ConsoleColors.RED+" Straight (Sequencia)"+ConsoleColors.RESET +"\n");
                 jogadores.get(j).setPontos(5000 + cartlast);
+                LinhaPontilhada();
                 return;
             }
         }
@@ -715,8 +721,9 @@ public class Poker {
                 seq += 1;
                 if (seq == 3) {
                     cartlast = tempValor;
-                    System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu uma TRINCA\n\n");
+                    System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu uma"+ConsoleColors.BLUE+" TRINCA"+ConsoleColors.RESET +"\n");
                     jogadores.get(j).setPontos(4000 + cartlast);
+                    LinhaPontilhada();
                     return;
                 }
             } else {
@@ -766,26 +773,29 @@ public class Poker {
             }
         }
         if (par1 == true && par2 == true){
-            System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu DOIS PARES\n\n");
+            System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu "+ConsoleColors.GREEN+"DOIS PARES"+ConsoleColors.RESET +"\n");
             jogadores.get(j).setPontos(3000 + cartlast + cartlast2);
             par1 = false;
             par2 = false;
+            LinhaPontilhada();
             return;
         }
         // Aproveitando o par da verificação anterior
         if (par1 == true){
-            System.out.println("Jogador " + jogadores.get(j).getNome() + " Conseguiu UM PAR\n\n");
+            System.out.println("Jogador '" + jogadores.get(j).getNome() + "' Conseguiu "+ConsoleColors.PURPLE+"UM PAR"+ConsoleColors.RESET +"\n");
             jogadores.get(j).setPontos(2000 + cartlast);
+            LinhaPontilhada();
             return;
         }
         // Verificando qual maior carta da mao do jogador[j]
         if (jogadores.get(j).getMao().get(0).getValor().getValorCarta() >= jogadores.get(j).getMao().get(1).getValor().getValorCarta()){
             jogadores.get(j).setPontos(jogadores.get(j).getMao().get(0).getValor().getValorCarta());
-            System.out.println("Jogador " + jogadores.get(j).getNome() + " com sua maior carta " + jogadores.get(j).getMao().get(0).getValor()  + "\n\n");
+            System.out.println("Jogador '" + jogadores.get(j).getNome() + "' com sua maior carta " + jogadores.get(j).getMao().get(0).getValor()  + "\n");
         }else{
             jogadores.get(j).setPontos(jogadores.get(j).getMao().get(1).getValor().getValorCarta());
-            System.out.println("Jogador " + jogadores.get(j).getNome() + " com sua maior carta " + jogadores.get(j).getMao().get(1).getValor()  + "\n\n");
+            System.out.println("Jogador '" + jogadores.get(j).getNome() + "' com sua maior carta " + jogadores.get(j).getMao().get(1).getValor()  + "\n");
         }
+        LinhaPontilhada();
         return ;
     }
 
@@ -803,6 +813,6 @@ public class Poker {
     }
 
     public void LinhaPontilhada(){
-        System.out.println(ConsoleColors.RED +"---------------------------------------------------------------------------\n" + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.RED +"---------------------------------------------------------------------------" + ConsoleColors.RESET);
     }
 }
