@@ -458,7 +458,7 @@ public class Poker {
     }
 
     private void escolha(int j) {
-        System.out.println("\nEscolha a ação desejada: ");
+        System.out.println(ConsoleColors.RESET+"\n\nEscolha a ação desejada: ");
         int a;
         do {
             if(pedirMesa){
