@@ -803,6 +803,6 @@ public class Poker {
     }
 
     public void LinhaPontilhada(){
-        System.out.println(ConsoleColors.BLACK +"---------------------------------------------------------------------------\n" + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.RED +"---------------------------------------------------------------------------\n" + ConsoleColors.RESET);
     }
 }
