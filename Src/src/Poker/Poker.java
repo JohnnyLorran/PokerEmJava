@@ -458,7 +458,7 @@ public class Poker {
     }
 
     private void escolha(int j) {
-        System.out.println(ConsoleColors.RESET+"\n\nEscolha a ação desejada: ");
+        System.out.println(ConsoleColors.RESET+"\nEscolha a ação desejada: ");
         int a;
         do {
             if(pedirMesa){
@@ -470,10 +470,13 @@ public class Poker {
             System.out.println(ConsoleColors.RED + "Correr   ---> 3");
             System.out.println(ConsoleColors.WHITE + "Ação desejada: ");
             a = isInt();
-            if (a > 3 || a < 0) {
-                System.out.println(ConsoleColors.WHITE + " Escolha uma opção válida !");
+            if (a > 3 || a < 1) {
+                LinhaPontilhada();
+                System.out.println(ConsoleColors.RED + "Opção inválida.");
+                System.out.println(ConsoleColors.WHITE + "Escolha novamente uma opção!");
+                LinhaPontilhada();
             }
-        } while (a > 3 || a < 0);
+        } while (a > 3 || a < 1);
         if (a == 1) {
             if (pedirMesa){
                 System.out.println(ConsoleColors.RESET + "Opção escolhida: [" + ConsoleColors.PURPLE + "MESA" + ConsoleColors.RESET + "]");
